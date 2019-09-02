@@ -1,43 +1,97 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-	<title> CHURRASCO PLANEJADO </title>
-	<h1><u><i><center> COMO PLANEJAR O SEU CHURRASCO </center></i></u></h1>
-</head>
-
-<body>
-<h4>SELECIONE O LOCAL ONDE SERÁ FEITO:</h4>
-<select name="Tipo_Churrasco">
-  <option value="null"></option>
-  <option value="Casa">Casa</option>
-  <option value="Evento">Evento</option>
-</select><br>
-<br><h4>NUMERO DE PARTICIPANTES:</h4>
-<input type="label" name="participantes"><br>
-
-<br><h4>ESCOLHA QUAIS OPÇÕES USARÁ NO CHURRASCO:</h4>
-<table border=1>
-<tr>
-<td>Tipos:
-<td>CARNE<br> <center><input type="checkbox" name="carne" value="CARNE"></td> 
-<td>LINGUIÇA <center><input type="checkbox" name="LINGUIÇA" value="LINGUIÇA"></td>
-<td>ASINHA <center><input type="checkbox" name="ASINHA" value="ASINHA"></td>
-<td>QUEIJO COALHO <center><input type="checkbox" name="QUEIJO_COALHO" value="QUEIJO_COALHO"></td>
-<td>PÃO DE ALHO <center><input type="checkbox" name="PÃO_ALHO" value="PÃO_ALHO"></td>
-</tr>
-<tr>
-<td>Preço médio:
-<td><center>R$:10
-<td><center>R$:9,80
-<td><center>R$:7
-<td><center>R$:5
-<td><center>R$:11
-</tr>
-</table>
-<br>
-<h4>VALOR TOTAL ESTIMADO:</h4>R$:<input type="label" name="ValorTotal"><br>
-<h4>PREÇO POR PARTICIPANTE:</h4>R$:<input type="label" name="ValorParticipante"><br>
-</body>
-<br><footer><u><i><center>Bom churrasco!</u></i></center></footer>
+	<link rel = "stylesheet" type = "text/css" href="textcss.css">
+	<!-- TOPO DA PAGINA-->
+	<head>
+		<div id = "topobg"> 
+			<div id ="topo">
+				<title> CHURRASCO PLANEJADO  </title>
+				<header> 
+					<h1><center>COMO PLANEJAR O SEU CHURRASCO</center></h1>
+					<h2 id = "descricao"><center>Não perca mais seu tempo planejando o seu churrasco. Deixa que fazemos isso pra você!</br>
+						É muito simples, apenas coloque as informações abaixo e veja o resultado:</center></h2>
+					
+				</header>
+				<meta name = "description " content = "Não sabe como planejar o seu churrasco?? Nós temos a solução!"/><!--DESCRICAO-->
+			</div>
+		</div>
+	</head>
+	<!---->
+	<body>
+	<!--script-->
+	<script type="text/javascript">
+	function resultados(){
+	var participantes,crn=10,lgc=9.8,asa=7,qco=5,pda=11;
+	var ValorTotal = document.getElementsByName('ValorTotal')[0]; var ValorParticipante = document.getElementsByName('ValorParticipante')[0];
+	ValorTotal.value = 'mamae';
+	ValorParticipante.value = 'dodoi';
+	
+	}
+	</script>
+		<div id = "imgdivisor">
+		</div>
+		<div id = "img1box">
+		</div>
+		<!--<div id = "img2box">
+		</div>-->
+		<div id = "img1">
+			<img src = "img\chu1.jpg" alt = "churrascobolado" width = "350" height = "220">
+		</div>
+		<!--<div id = "img2">
+			<img = src = "img\chu2.png" alt = "churrascogostoso" width= "350" height = "220">
+		</div>-->
+		
+		<div id = "corpo">
+			<div id = "borda">
+				<h4>SELECIONE O LOCAL ONDE SERÁ FEITO:</h4>
+				<select name="Tipo_Churrasco">
+				  <option value="null"></option>
+				  <option value="Casa">Casa</option>
+				  <option value="Evento">Evento</option>
+				</select><br>
+				<br><h4>NUMERO DE PARTICIPANTES:</h4>
+				<input type="label" name="participantes"><br>
+				<!--OPCOES DO USUARIO-->
+				<br><h4>ESCOLHA QUAIS OPÇÕES USARÁ NO CHURRASCO:</h4>
+					<div id = "table">
+					<table  border=1 >
+						<tr>
+							<td>Tipos:
+							<td>CARNE<br> <center><input type="checkbox" name="carne" value="CARNE"></td> 
+							<td>LINGUIÇA <center><input type="checkbox" name="LINGUIÇA" value="LINGUIÇA"></td>
+							<td>ASINHA <center><input type="checkbox" name="ASINHA" value="ASINHA"></td>
+							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="QUEIJO_COALHO" value="QUEIJO_COALHO"></td>
+							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="PÃO_ALHO" value="PÃO_ALHO"></td>
+						</tr>
+						<tr>
+							<!--PREÇOS-->
+							<td>Preço médio:
+							<td><center>R$:10
+							<td><center>R$:9,80
+							<td><center>R$:7
+							<td><center>R$:5
+							<td><center>R$:11
+						</tr>
+					</table>
+				</div>
+				<br>
+				<div id = "resulbutton">
+				<button class = "button" name = "calcular" onclick="resultados()"> <center> BOM&nbsp;CHURRASCO!</center></button>
+			</div>
+			
+			</div>
+			<div id="results">
+				<h4>VALOR TOTAL ESTIMADO:</h4>R$:<input type="label" name="ValorTotal"><br>
+				<h4>PREÇO POR PARTICIPANTE:</h4>R$:<input type="label" name="ValorParticipante"><br>
+			</div>	
+		</div>
+			<!--RESULTADO-->
+		
+	</body>
+	<div id = "footer">
+		<footer>
+		</footer>
+			<p><center>Planejador de Churrasco. 2019. ©. Todos os direitos reservados</center></P>
+	</div>
+	
 </html>
