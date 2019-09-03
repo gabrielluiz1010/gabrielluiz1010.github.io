@@ -20,13 +20,26 @@
 	<body>
 	<!--script-->
 	<script type="text/javascript">
-	function resultados(){
-	var participantes,crn=10,lgc=9.8,asa=7,qco=5,pda=11;
-	var ValorTotal = document.getElementsByName('ValorTotal')[0]; var ValorParticipante = document.getElementsByName('ValorParticipante')[0];
-	ValorTotal.value = 'mamae';
-	ValorParticipante.value = 'dodoi';
-	
+	function calculos(){
+		var casabox = document.getElementsByName("CASA");
+		var eventobox = document.getElementsByName("EVENTO");
+		
+		 if (casabox.checked == false & eventobox.checked == false || casabox.checked == true & eventobox.checked == true){
+			console.log("Marque apenas uma das opções");
+		 }
+		 
+		 
+			
 	}
+	//-----------------DEPOIS RESULTADOS----------------//
+	function resultados(){
+		var participantes,crn=10,lgc=9.8,asa=7,qco=5,pda=11;
+		var ValorTotal = document.getElementsByName('ValorTotal')[0]; var ValorParticipante = document.getElementsByName('ValorParticipante')[0];
+		ValorTotal.value = 'mamae';
+		ValorParticipante.value = 'dodoi';
+	}
+	
+	
 	</script>
 		<div id = "imgdivisor">
 		</div>
@@ -44,11 +57,9 @@
 		<div id = "corpo">
 			<div id = "borda">
 				<h4>SELECIONE O LOCAL ONDE SERÁ FEITO:</h4>
-				<select name="Tipo_Churrasco">
-				  <option value="null"></option>
-				  <option value="Casa">Casa</option>
-				  <option value="Evento">Evento</option>
-				</select><br>
+				<td>CASA<input type="checkbox" name="CASA" value="CASA"></td>
+				<td>EVENTO<input type="checkbox" name="EVENTO" value="EVENTO"></td>
+				<br>
 				<br><h4>NUMERO DE PARTICIPANTES:</h4>
 				<input type="label" name="participantes"><br>
 				<!--OPCOES DO USUARIO-->
