@@ -26,6 +26,6 @@ CARNES{
 DIVERSOS{
       bacon,lignuica, sobrcoxa,peito de frango,vinagrete, maionese, queijo coalho, pao de alho,
 }
-BEBIDAS{
+BEBIDAS -   VISAO NAO COLCOAR PRECO SO QUANTIDADE{
       refrigerante,cerveja
 }
