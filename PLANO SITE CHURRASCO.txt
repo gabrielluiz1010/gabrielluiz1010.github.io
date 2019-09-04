@@ -1,19 +1,31 @@
 *CHURRASCO EM CASA
 -0,4 Kg DE ALIMENTO P/ PESSOA
 .CARNE
-.LINGUI�A
+.LINGUIÇA
 .DRUMMET
 .QUEIJO COAHO
 .PAO DE ALHO
-
-- 1 LITRO DE BEBIDA P/ PESSOA
 --------------------------------------------------------------------
 *CHURRASCO EVENTO MUITAS HORAS
 -0,8 Kg DE ALIMENTO P/ PESSOA
 .CARNE
-.LINGUI�A
+.LINGUIÇA
 .DRUMMET
 .QUEIJO COAHO
 .PAO DE ALHO
 
 -2 LITRO P/ PESSOA
+
+---------------------------------------------
+
+Separacao:
+CARNES - DIVERSOS - BEBIDAS
+CARNES{
+      picanha,costela,fradinha,maminha,asinha,alcatra,filemignon, contra file,cupim,tbone,coração,
+      }
+DIVERSOS{
+      bacon,lignuica, sobrcoxa,peito de frango,
+}
+BEBIDAS{
+      refrigerante,cerveja
+}
