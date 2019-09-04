@@ -24,7 +24,7 @@ CARNES{
       picanha,costela,fradinha,maminha,asinha,alcatra,filemignon, contra file,cupim,tbone,coração,
       }
 DIVERSOS{
-      bacon,lignuica, sobrcoxa,peito de frango,
+      bacon,lignuica, sobrcoxa,peito de frango,vinagrete, maionese, queijo coalho, pao de alho,
 }
 BEBIDAS{
       refrigerante,cerveja
