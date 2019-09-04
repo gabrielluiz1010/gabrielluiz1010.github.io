@@ -21,26 +21,50 @@
 	<!--script-->
 	<script type="text/javascript">
 	function calculos(){
-		var casabox = document.getElementsByName("CASA");
-		var eventobox = document.getElementsByName("EVENTO");
+		var participantes,crn=10,lgc=9.8,asa=7,qco=5,pda=11;
+		var total = 0; var parttotal = 0;
+		var casabox = document.getElementsByName("CASA")[0];
+		var eventobox = document.getElementsByName("EVENTO")[0];
 		
+
 		 if (casabox.checked == false & eventobox.checked == false || casabox.checked == true & eventobox.checked == true){
 			console.log("Marque apenas uma das opções");
-		 }
-		 
-		 
-			
+			var eror = document.getElementsByName("error")[0];//variavel do erro
+			eror.style.display = "block";//o style do display esta "block", o que significa q ela vai aparecer;
+			setInterval(function(){eror.style.display = "none"},4000);//dps de 4 segundos ela apaga, "none";
+		 }else{
+		 	for(var i = 0; i < 5; i ++){
+		 		var opcoes = document.getElementsByName("opcoes")[i];// o programa vai checando todas as opcoes 
+		 		if(opcoes.checked){ // caso a opcao checada no momento esteja marcada
+		 			total = parseInt(opcoes.value) + total; // o programa incrementa o valor dela no total;
+		 		}
+		 	}
+		 	var parttotalaux;//variavel auxiliar
+		 	parttotalaux =(total/10) * 4;//calculo
+		 	parttotal = parttotalaux;
+		 	var totalaxu;//variavel auxiliar
+		 	participantes = document.getElementsByName("participantes")[0];//pega o n° de participantes
+		 	totalaxu = ((total/10) * 4) * parseInt(participantes.value);//calculo do total;
+		 	total = totalaxu;
+		 	
+		 } 
+		alert("Obrigado por usar o Planejador de Churrascos");//mensagem de agradecimento
+		resultados(total,parttotal);//chamada da funcao resultados, passando os paramentros que serao utilizados pela funcao resultados();
 	}
 	//-----------------DEPOIS RESULTADOS----------------//
-	function resultados(){
-		var participantes,crn=10,lgc=9.8,asa=7,qco=5,pda=11;
+	function resultados(valor,partvalor){
 		var ValorTotal = document.getElementsByName('ValorTotal')[0]; var ValorParticipante = document.getElementsByName('ValorParticipante')[0];
-		ValorTotal.value = 'mamae';
-		ValorParticipante.value = 'dodoi';
+		ValorTotal.value = valor;
+		ValorParticipante.value = partvalor;
+		//-----DIV RESULS-------
+		var resuldiv = document.getElementById("results");
+		 if(resuldiv.style.display == "none"){//se o display da div results estiver  ("none"), o programa ativa ("block");
+		 		resuldiv.style.display = "block";
+		 }
 	}
 	
-	
 	</script>
+		<p class="citacao">Churrasco é o nome dado para pratos feitos à base de cara in natura ou processada, assada sobre fogo ou brasa e em espetos ou me grelhas. A palavra churrasco é usada em português e espanhol para dizer que a carne foi assada na brasa.</p>
 		<div id = "imgdivisor">
 		</div>
 		<div id = "img1box">
@@ -53,12 +77,14 @@
 		<!--<div id = "img2">
 			<img = src = "img\chu2.png" alt = "churrascogostoso" width= "350" height = "220">
 		</div>-->
-		
 		<div id = "corpo">
 			<div id = "borda">
 				<h4>SELECIONE O LOCAL ONDE SERÁ FEITO:</h4>
-				<td>CASA<input type="checkbox" name="CASA" value="CASA"></td>
-				<td>EVENTO<input type="checkbox" name="EVENTO" value="EVENTO"></td>
+				<p name = "error" class = "error" style="display: none">X Marque apenas uma das opções!</p> 
+				<label class="checks">
+					<td>CASA<input type="checkbox" name="CASA" value="CASA"></td>
+					<td>EVENTO<input type="checkbox" name="EVENTO" value="EVENTO"></td>
+				</label>
 				<br>
 				<br><h4>NUMERO DE PARTICIPANTES:</h4>
 				<input type="label" name="participantes"><br>
@@ -68,11 +94,11 @@
 					<table  border=1 >
 						<tr>
 							<td>Tipos:
-							<td>CARNE<br> <center><input type="checkbox" name="carne" value="CARNE"></td> 
-							<td>LINGUIÇA <center><input type="checkbox" name="LINGUIÇA" value="LINGUIÇA"></td>
-							<td>ASINHA <center><input type="checkbox" name="ASINHA" value="ASINHA"></td>
-							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="QUEIJO_COALHO" value="QUEIJO_COALHO"></td>
-							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="PÃO_ALHO" value="PÃO_ALHO"></td>
+							<td>CARNE<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
+							<td>LINGUIÇA <center><input type="checkbox" name="opcoes" value="9.8"></td>
+							<td>ASINHA <center><input type="checkbox" name="opcoes" value="7"></td>
+							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="opcoes" value="5"></td>
+							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="opcoes" value="11"></td>
 						</tr>
 						<tr>
 							<!--PREÇOS-->
@@ -87,11 +113,12 @@
 				</div>
 				<br>
 				<div id = "resulbutton">
-				<button class = "button" name = "calcular" onclick="resultados()"> <center> BOM&nbsp;CHURRASCO!</center></button>
+				<button class = "button" name = "calcular" onclick="calculos()"> <center> BOM&nbsp;CHURRASCO!</center>
+				</button>
 			</div>
 			
 			</div>
-			<div id="results">
+			<div id="results" style="display: none;">
 				<h4>VALOR TOTAL ESTIMADO:</h4>R$:<input type="label" name="ValorTotal"><br>
 				<h4>PREÇO POR PARTICIPANTE:</h4>R$:<input type="label" name="ValorParticipante"><br>
 			</div>	
