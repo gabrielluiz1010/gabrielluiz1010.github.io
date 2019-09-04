@@ -1,15 +1,18 @@
+body{
+	background-color: black;
+	width:100%;
+}
 #topobg{
-	width: 990px;
-	height: 150px;
+	width: 73%;
+	height: 25%;
 	margin: auto;
 	background-color: gray;
 	background-image: url(img/chubg.jpg);
 }
 #topo {
-	width: 900px;
-	height: 160px;
+	width: 90%;
+	height: 20%;
 	margin: auto;
-	/*background-color: rgba(100,100,100,0.7);*/
 	background-image: linear-gradient(rgba(100,100,100,0.7),black);
 	color: white;
 	border-radius:15px;
@@ -18,7 +21,7 @@
 	font-size: 25px;
 }
 #topo h2{
-	width:900px;
+	width:100%;
 	color: white;
 	-webkit-text-stroke-width:1px;
 	-webkit-text-stroke-color:black;
@@ -26,7 +29,7 @@
 }
 #corpo{
 	background-color:lightgray;
-	width: 960px;
+	width: 71%;
 	margin:auto;
 	font-family: Times;
 	font-size: 15px;
@@ -35,7 +38,7 @@
 }
 #borda{
 	background-color: white;
-	width: 900px;
+	width: 95%;
 	margin:auto;
 	font-family: Arial Narrow;
 	font-size: 15px;
@@ -44,14 +47,13 @@
 	border-radius: 15px;
 }
 #descricao{
-	width: 960px;
-	margin:auto;
+	width: 50%;
 	font-family: Verdana;
 	font-size: 15px;
 }
 #imgdivisor{
-	width: 400px;
-	height:375px;
+	width: 31%;
+	height:62%;
 	position: absolute;
 	background-color:gray;
 	padding:20px;
@@ -60,13 +62,13 @@
 	border-radius:15px;
 }
 #img1box{
-	width:350px;
-	height:220px;
-	padding:20px;
+	width:25%;
+	height:55%;
+	padding:1.4%;
 	position:absolute;
-	background-color:rgba(10,10,10,0.2);
-	top:210px;
-	left:730px;
+	background-image: linear-gradient(rgba(100,100,100,0.01),black);
+	top:36%;
+	left:54%;
 }
 #img2box{
 	width:350px;
@@ -80,8 +82,8 @@
 
 #img1{
 	position: absolute;
-	top:230px;
-	left: 750px;
+	top:60%;
+	left: 55%;
 	
 }
 #img2{
@@ -89,7 +91,12 @@
 	left:750px;
 	top:520px;
 }
+.checks{
+	cursor: pointer;
+	font-size: 17px;
+	font-family: Arial Narrow;
 
+}
 #table{
 	background-color: lightgray;
 	width:400px;
@@ -97,35 +104,45 @@
 	border: 2px solid black;
 	font-size:15px;
 }
-body{
-	background-color: black;
+
+.button{
+	background-color: gray;
+	color: black;
+	width:15%;
+	height:10%;
+	border-radius:15px;
+	font-size: 4px;
+	margin-left:15%;
+	font-size: 105%;
+	font-family:Impact
+	
 }
-.button {
-	background-color: ;
-	/* padding: 15px 25px;*/
-	text-align: center;
-	font-size: 16px;
-	cursor: pointer;
-	font-weight:bold;
-	margin-left:100px;
+.citacao{
+	position: absolute;
+	font-family: verdana;
+	width: 26.8%;
+	font-size: 15px;
+	padding: 0.5%;
+	left: 54%;
+	z-index: 1;/*sobrepoe em camadas*/
+	top: 34.5%;
+	
 }
-#results{
-background-color: lightgray;
-width:900px;
-margin:auto;	
+.error{
+	position: absolute;
+	font-family: impact;
+	font-size: 90%;
+	color: red;
+	margin: auto;
+	left: 29%;
+
 }
-
-
-
-
-
 #footer{
 	background-color:gray;
 	margin:auto;
-	width:960px;
-	height:25px;
+	width:71%;
+	height:25%;
 	padding: 15px;
 }
-
 
 
