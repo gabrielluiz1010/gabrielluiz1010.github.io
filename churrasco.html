@@ -6,7 +6,7 @@
 		<div id = "topobg"> 
 			<div id ="topo">
 				<title> CHURRASCO PLANEJADO  </title>
-				<header> 
+				<head></head>er> 
 					<h1><center>COMO PLANEJAR O SEU CHURRASCO</center></h1>
 					<h2 id = "descricao"><center>Não perca mais seu tempo planejando o seu churrasco. Deixa que fazemos isso pra você!</br>
 						É muito simples, apenas coloque as informações abaixo e veja o resultado:</center></h2>
@@ -53,9 +53,46 @@
 	}
 	//-----------------DEPOIS RESULTADOS----------------//
 	function resultados(valor,partvalor){
-		var ValorTotal = document.getElementsByName('ValorTotal')[0]; var ValorParticipante = document.getElementsByName('ValorParticipante')[0];
+		var ValorTotal = document.getElementsByName('ValorTotal')[0];
+		var ValorParticipante = document.getElementsByName('ValorParticipante')[0];
 		ValorTotal.value = valor;
 		ValorParticipante.value = partvalor;
+
+		var cerva = document.getElementsByName("cerva");
+		var refri = document.getElementsByName("refri");
+		var bebidasresul = document.getElementsByName('bebidasresul')[0];
+		var bebidasvalor;
+		
+		if(casabox.checked){
+			if (cerva.checked && refri.checked ){
+				bebidasvalor = (parseInt(participantes.value) * cerva) + (parseInt(participantes.value) * refri);
+			}		
+			if (!cerva.checked && !refri.checked ){
+				bebidasvalor = 0;
+			}
+			if (cerva.checked && !refri.checked){
+				bebidasvalor =(parseInt(participantes.value) * cerva);
+			}
+			if (refri.checked && !cerva.checked){
+				bebidasvalor =(parseInt(participantes.value) * refri);
+			}
+		}
+		if(eventobox.checked){
+			if (cerva.checked && refri.checked ){
+				bebidasvalor = (parseInt(participantes.value) * cerva * 2) + (parseInt(participantes.value) * refri * 2);
+			}		
+			if (!cerva.checked && !refri.checked ){
+				bebidasvalor = 0;
+			}
+			if (cerva.checked && !refri.checked){
+				bebidasvalor =(parseInt(participantes.value) * cerva * 2);
+			}
+			if (refri.checked && !cerva.checked){
+				bebidasvalor =(parseInt(participantes.value) * refri * 2);
+			}
+		}
+		
+		
 		//-----DIV RESULS-------
 		var resuldiv = document.getElementById("results");
 		 if(resuldiv.style.display == "none"){//se o display da div results estiver  ("none"), o programa ativa ("block");
@@ -65,12 +102,12 @@
 	
 	</script>
 		<p class="citacao">Churrasco é o nome dado para pratos feitos à base de cara in natura ou processada, assada sobre fogo ou brasa e em espetos ou me grelhas. A palavra churrasco é usada em português e espanhol para dizer que a carne foi assada na brasa.</p>
-		<div id = "imgdivisor">
+		<!--<div id = "imgdivisor">
 		</div>
 		<div id = "img1box">
 		</div>
 		<!--<div id = "img2box">
-		</div>-->
+		</div>
 		<div id = "img1">
 			<img src = "img\chu1.jpg" alt = "churrascobolado" width = "350" height = "220">
 		</div>
@@ -90,15 +127,51 @@
 				<input type="label" name="participantes"><br>
 				<!--OPCOES DO USUARIO-->
 				<br><h4>ESCOLHA QUAIS OPÇÕES USARÁ NO CHURRASCO:</h4>
-					<div id = "table">
-					<table  border=1 >
+					<div id = "table1">
+						<table border=1>
+							<tr>
+								<td>Carnes:</td>
+								<td>PICANHA<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
+								<td>COSTELA <center><input type="checkbox" name="opcoes" value="9.8"></td>
+								<td>FRALDINHA <center><input type="checkbox" name="opcoes" value="7"></td>
+								<td>MAMINHA<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
+								<td>ASINHA <center><input type="checkbox" name="opcoes" value="9.8"></td>
+								<td>ALCATRA <center><input type="checkbox" name="opcoes" value="7"></td>
+								<td>CONTRA&nbsp;FILÉ<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
+								<td>T-&nbsp;BONE<center><input type="checkbox" name="opcoes" value="9.8"></td>
+								<td>CORAÇÃO<center><input type="checkbox" name="opcoes" value="7"></td>
+
+						</tr>
 						<tr>
-							<td>Tipos:
-							<td>CARNE<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
+							<td>Preço médio:
+							<td><center>R$:10
+							<td><center>R$:9,80
+							<td><center>R$:7
+							<td><center>R$:5
+							<td><center>R$:11
+							<td><center>R$:13
+							<td><center>R$:5
+							<td><center>R$:11
+							<td><center>R$:13
+						</tr>
+						</table>
+					</div>
+					<h4>SELECIONE O TIPO DE BEBIDA:</h4>
+					<label class="checks">
+						<td>CERVEJA<input type="checkbox" name="cerva" value="CERVA"></td>
+						<td>REFRIGERANTE<input type="checkbox" name="refri" value="REFRI"></td>
+					</label><br><br>
+					<br>
+					<div id = "table">
+						<table  border=1 >
+						<tr>
+							<td>Diversos:</td>
+							<td>SOBRECOXA<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
 							<td>LINGUIÇA <center><input type="checkbox" name="opcoes" value="9.8"></td>
-							<td>ASINHA <center><input type="checkbox" name="opcoes" value="7"></td>
+							<td>MAIONESE <center><input type="checkbox" name="opcoes" value="7"></td>
 							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="opcoes" value="5"></td>
 							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="opcoes" value="11"></td>
+							<td>VINAGRETE <center><input type="checkbox" name="opcoes" value="7"></td>
 						</tr>
 						<tr>
 							<!--PREÇOS-->
@@ -108,19 +181,21 @@
 							<td><center>R$:7
 							<td><center>R$:5
 							<td><center>R$:11
+							<td><center>R$:13
 						</tr>
 					</table>
-				</div>
-				<br>
+				</div><br>
+				
 				<div id = "resulbutton">
-				<button class = "button" name = "calcular" onclick="calculos()"> <center> BOM&nbsp;CHURRASCO!</center>
-				</button>
-			</div>
+					<button class = "button" name = "calcular" onclick="calculos()"> <center> BOM&nbsp;CHURRASCO!</center>
+					</button>
+				</div>
 			
 			</div>
 			<div id="results" style="display: none;">
 				<h4>VALOR TOTAL ESTIMADO:</h4>R$:<input type="label" name="ValorTotal"><br>
 				<h4>PREÇO POR PARTICIPANTE:</h4>R$:<input type="label" name="ValorParticipante"><br>
+				<p name = "bebidasresul"> mamaedodoi</p>
 			</div>	
 		</div>
 			<!--RESULTADO-->

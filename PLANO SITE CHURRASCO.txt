@@ -1,4 +1,4 @@
-*CHURRASCO EM CASA
+﻿*CHURRASCO EM CASA
 -0,4 Kg DE ALIMENTO P/ PESSOA
 .CARNE
 .LINGUIÇA
@@ -21,10 +21,10 @@
 Separacao:
 CARNES - DIVERSOS - BEBIDAS
 CARNES{
-      picanha,costela,fradinha,maminha,asinha,alcatra,filemignon, contra file,cupim,tbone,coração,
+      picanha,costela,fradinha,maminha,asinha,alcatra,contra file,tbone,coração,
       }
 DIVERSOS{
-      bacon,lignuica, sobrcoxa,peito de frango,vinagrete, maionese, queijo coalho, pao de alho,
+      lignuica,sobrcoxa,vinagrete, maionese, queijo coalho, pao de alho,
 }
 BEBIDAS -   VISAO NAO COLCOAR PRECO SO QUANTIDADE{
       refrigerante,cerveja

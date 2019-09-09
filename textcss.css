@@ -96,10 +96,18 @@ body{
 	font-size: 17px;
 	font-family: Arial Narrow;
 
+	
+}
+#table1{
+	background-color: lightgray;
+	width:70%;
+	font-family: Impact;
+	border: 2px solid black;
+	font-size:15px;
 }
 #table{
 	background-color: lightgray;
-	width:400px;
+	width:58%;
 	font-family: Impact;
 	border: 2px solid black;
 	font-size:15px;
@@ -112,7 +120,7 @@ body{
 	height:10%;
 	border-radius:15px;
 	font-size: 4px;
-	margin-left:15%;
+	margin-left:23%;
 	font-size: 105%;
 	font-family:Impact
 	
