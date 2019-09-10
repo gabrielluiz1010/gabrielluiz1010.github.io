@@ -24,7 +24,7 @@
 		var participantes,crn=10,lgc=9.8,asa=7,qco=5,pda=11;
 		var total = 0; var parttotal = 0;
 		var casabox = document.getElementsByName("CASA")[0];
-		var eventobox = document.getElementsByName("EVENTO")[0];
+		var eventobox = document.getElementsByName("EVENTO")[0];//////////UNDEFINED//////////
 		
 
 		 if (casabox.checked == false & eventobox.checked == false || casabox.checked == true & eventobox.checked == true){
@@ -102,20 +102,21 @@
 	
 	</script>
 		<p class="citacao">Churrasco é o nome dado para pratos feitos à base de cara in natura ou processada, assada sobre fogo ou brasa e em espetos ou me grelhas. A palavra churrasco é usada em português e espanhol para dizer que a carne foi assada na brasa.</p>
-		<!--<div id = "imgdivisor">
+		<div id = "imgdivisor">
 		</div>
 		<div id = "img1box">
 		</div>
 		<!--<div id = "img2box">
-		</div>
+		</div>-->
 		<div id = "img1">
-			<img src = "img\chu1.jpg" alt = "churrascobolado" width = "350" height = "220">
+			<img src = "img\chu1.jpg" alt = "churrascobolado" width = "320" height = "170">
 		</div>
 		<!--<div id = "img2">
 			<img = src = "img\chu2.png" alt = "churrascogostoso" width= "350" height = "220">
 		</div>-->
 		<div id = "corpo">
 			<div id = "borda">
+				<h4><font size = "+2">PLANEJADOR DE CHURRASCO</font></h4>
 				<h4>SELECIONE O LOCAL ONDE SERÁ FEITO:</h4>
 				<p name = "error" class = "error" style="display: none">X Marque apenas uma das opções!</p> 
 				<label class="checks">
@@ -126,6 +127,7 @@
 				<br><h4>NUMERO DE PARTICIPANTES:</h4>
 				<input type="label" name="participantes"><br>
 				<!--OPCOES DO USUARIO-->
+				<br>
 				<br><h4>ESCOLHA QUAIS OPÇÕES USARÁ NO CHURRASCO:</h4>
 					<div id = "table1">
 						<table border=1>
