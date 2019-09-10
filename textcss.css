@@ -53,17 +53,17 @@ body{
 }
 #imgdivisor{
 	width: 31%;
-	height:62%;
+	height:49%;
 	position: absolute;
 	background-color:gray;
 	padding:20px;
-	top:199px;
-	left:695px;
+	top:34%;
+	left:51%;
 	border-radius:15px;
 }
 #img1box{
 	width:25%;
-	height:55%;
+	height:45%;
 	padding:1.4%;
 	position:absolute;
 	background-image: linear-gradient(rgba(100,100,100,0.01),black);
@@ -82,7 +82,7 @@ body{
 
 #img1{
 	position: absolute;
-	top:60%;
+	top:55%;
 	left: 55%;
 	
 }
@@ -134,6 +134,9 @@ body{
 	left: 54%;
 	z-index: 1;/*sobrepoe em camadas*/
 	top: 34.5%;
+	
+	border-radius:15px;
+	
 	
 }
 .error{
