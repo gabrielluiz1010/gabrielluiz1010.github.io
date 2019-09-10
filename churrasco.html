@@ -24,7 +24,7 @@
 		var participantes,crn=10,lgc=9.8,asa=7,qco=5,pda=11;
 		var total = 0; var parttotal = 0;
 		var casabox = document.getElementsByName("CASA")[0];
-		var eventobox = document.getElementsByName("EVENTO")[0];//////////UNDEFINED//////////
+		var eventobox = document.getElementsByName("EVENTO")[0];
 		
 
 		 if (casabox.checked == false & eventobox.checked == false || casabox.checked == true & eventobox.checked == true){
@@ -57,47 +57,61 @@
 		var ValorParticipante = document.getElementsByName('ValorParticipante')[0];
 		ValorTotal.value = valor;
 		ValorParticipante.value = partvalor;
-
-		var cerva = document.getElementsByName("cerva");
-		var refri = document.getElementsByName("refri");
-		var bebidasresul = document.getElementsByName('bebidasresul')[0];
+		
+		var participantes = document.getElementsByName("participantes")[0];
+		var casabox = document.getElementsByName("CASA")[0];
+		var eventobox = document.getElementsByName("EVENTO")[0];
+		var cerva = document.getElementsByName("cerva")[0];
+		var refri = document.getElementsByName("refri")[0];
+		var bebidasresul = document.getElementsByName("bebidasresul")[0];
 		var bebidasvalor;
 		
 		if(casabox.checked){
 			if (cerva.checked && refri.checked ){
-				bebidasvalor = (parseInt(participantes.value) * cerva) + (parseInt(participantes.value) * refri);
+				bebidasvalor = (parseInt(participantes.value) * 5) + (parseInt(participantes.value) * 2);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
+				
 			}		
 			if (!cerva.checked && !refri.checked ){
 				bebidasvalor = 0;
+				bebidasresul.innerHTML = "Voce não calculou a quantidade de bebida para o seu churrasco";
 			}
 			if (cerva.checked && !refri.checked){
 				bebidasvalor =(parseInt(participantes.value) * cerva);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
 			}
 			if (refri.checked && !cerva.checked){
 				bebidasvalor =(parseInt(participantes.value) * refri);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
 			}
 		}
 		if(eventobox.checked){
 			if (cerva.checked && refri.checked ){
 				bebidasvalor = (parseInt(participantes.value) * cerva * 2) + (parseInt(participantes.value) * refri * 2);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
 			}		
 			if (!cerva.checked && !refri.checked ){
 				bebidasvalor = 0;
+				bebidasresul.innerHTML = "Voce não calculou a quantidade de bebida para o seu churrasco";
 			}
 			if (cerva.checked && !refri.checked){
 				bebidasvalor =(parseInt(participantes.value) * cerva * 2);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
 			}
 			if (refri.checked && !cerva.checked){
 				bebidasvalor =(parseInt(participantes.value) * refri * 2);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
 			}
 		}
 		
 		
 		//-----DIV RESULS-------
 		var resuldiv = document.getElementById("results");
+		
 		 if(resuldiv.style.display == "none"){//se o display da div results estiver  ("none"), o programa ativa ("block");
 		 		resuldiv.style.display = "block";
 		 }
+		 
 	}
 	
 	</script>
