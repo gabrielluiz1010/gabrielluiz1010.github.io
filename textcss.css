@@ -3,7 +3,7 @@ body{
 	width:100%;
 }
 #topobg{
-	width: 73%;
+	width: 75%;
 	height: 25%;
 	margin: auto;
 	background-color: gray;
@@ -11,7 +11,7 @@ body{
 }
 #topo {
 	width: 90%;
-	height: 20%;
+	height: 10%;
 	margin: auto;
 	background-image: linear-gradient(rgba(100,100,100,0.7),black);
 	color: white;
@@ -33,7 +33,7 @@ body{
 	margin:auto;
 	font-family: Times;
 	font-size: 15px;
-	padding: 15px;
+	padding: 1%;
 	
 }
 #borda{
@@ -56,7 +56,7 @@ body{
 	height:49%;
 	position: absolute;
 	background-color:gray;
-	padding:20px;
+	padding:2%;
 	top:34%;
 	left:51%;
 	border-radius:15px;
