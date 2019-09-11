@@ -48,8 +48,13 @@
 		 	total = totalaxu;
 		 	
 		 } 
-		alert("Obrigado por usar o Planejador de Churrascos");//mensagem de agradecimento
-		resultados(total,parttotal);//chamada da funcao resultados, passando os paramentros que serao utilizados pela funcao resultados();
+		 if(casabox.checked || eventobox.checked){ // condicionador para a chamada dos resultados, só chama se o usuario marcar casa || evento
+			alert("Obrigado por usar o Planejador de Churrascos");//mensagem de agradecimento
+			resultados(total,parttotal);//chamada da funcao resultados, passando os paramentros que serao utilizados pela funcao resultados();
+		}else{
+			eror.style.display = "block";
+			setInterval(function(){eror.style.display = "none"},4000);
+		}
 	}
 	//-----------------DEPOIS RESULTADOS----------------//
 	function resultados(valor,partvalor){
@@ -115,14 +120,14 @@
 	}
 	
 	</script>
-		<p class="citacao">Churrasco é o nome dado para pratos feitos à base de cara in natura ou processada, assada sobre fogo ou brasa e em espetos ou me grelhas. A palavra churrasco é usada em português e espanhol para dizer que a carne foi assada na brasa.</p>
+		<!--<p class="citacao">Churrasco é o nome dado para pratos feitos à base de cara in natura ou processada, assada sobre fogo ou brasa e em espetos ou me grelhas. A palavra churrasco é usada em português e espanhol para dizer que a carne foi assada na brasa.</p>
 		<div id = "imgdivisor">
 		</div>
 		<div id = "img1box">
 		</div>
 		<!--<div id = "img2box">
 		</div>-->
-		<div id = "img1">
+		<!--<div id = "img1">
 			<img src = "img\chu1.jpg" alt = "churrascobolado" width = "320" height = "170">
 		</div>
 		<!--<div id = "img2">
@@ -137,7 +142,7 @@
 					<td>CASA<input type="checkbox" name="CASA" value="CASA"></td>
 					<td>EVENTO<input type="checkbox" name="EVENTO" value="EVENTO"></td>
 				</label>
-				<br>
+				<br><br>
 				<br><h4>NUMERO DE PARTICIPANTES:</h4>
 				<input type="label" name="participantes"><br>
 				<!--OPCOES DO USUARIO-->
