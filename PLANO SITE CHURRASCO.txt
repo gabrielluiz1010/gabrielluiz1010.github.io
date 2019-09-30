@@ -1,5 +1,8 @@
-﻿*CHURRASCO EM CASA
+*CHURRASCO EM CASA
 -0,4 Kg DE ALIMENTO P/ PESSOA
+O PROCEDER:
+	n° * (400 / n°carne )= T > incrementando com ( T * PRECOCARNE) = SUCESSO 
+					
 .CARNE
 .LINGUIÇA
 .DRUMMET
@@ -21,10 +24,10 @@
 Separacao:
 CARNES - DIVERSOS - BEBIDAS
 CARNES{
-      picanha,costela,fradinha,maminha,asinha,alcatra,contra file,tbone,coração,
+      picanha(28),costela(11),fradinha(16.5),maminha(20),asinha(15),alcatra(30),contra file(20),tbone(30),coração(20),
       }
 DIVERSOS{
-      lignuica,sobrcoxa,vinagrete, maionese, queijo coalho, pao de alho,
+      lignuica(10),sobrcoxa(8),vinagrete(25), maionese(29), queijo coalho(17), pao de alho(7),
 }
 BEBIDAS -   VISAO NAO COLCOAR PRECO SO QUANTIDADE{
       refrigerante,cerveja
