@@ -6,11 +6,9 @@
 		<div id = "topobg"> 
 			<div id ="topo">
 				<title> CHURRASCO PLANEJADO  </title>
-				<head></head>er> 
 					<h1><center>COMO PLANEJAR O SEU CHURRASCO</center></h1>
 					<h2 id = "descricao"><center>Não perca mais seu tempo planejando o seu churrasco. Deixa que fazemos isso pra você!</br>
 						É muito simples, apenas coloque as informações abaixo e veja o resultado:</center></h2>
-					
 				</header>
 				<meta name = "description " content = "Não sabe como planejar o seu churrasco?? Nós temos a solução!"/><!--DESCRICAO-->
 			</div>
@@ -21,36 +19,40 @@
 	<!--script-->
 	<script type="text/javascript">
 	function calculos(){
-		var participantes,crn=10,lgc=9.8,asa=7,qco=5,pda=11;
+		var participantes =  document.getElementsByName("participantes")[0];;
 		var total = 0; var parttotal = 0;
 		var casabox = document.getElementsByName("CASA")[0];
 		var eventobox = document.getElementsByName("EVENTO")[0];
-		
+		var quantidadecarnes;
 
-		 if (casabox.checked == false & eventobox.checked == false || casabox.checked == true & eventobox.checked == true){
+		 if (!casabox.checked & !eventobox.checked|| casabox.checked & eventobox.checked){
 			console.log("Marque apenas uma das opções");
 			var eror = document.getElementsByName("error")[0];//variavel do erro
 			eror.style.display = "block";//o style do display esta "block", o que significa q ela vai aparecer;
 			setInterval(function(){eror.style.display = "none"},4000);//dps de 4 segundos ela apaga, "none";
 		 }else{
-		 	for(var i = 0; i < 5; i ++){
-		 		var opcoes = document.getElementsByName("opcoes")[i];// o programa vai checando todas as opcoes 
-		 		if(opcoes.checked){ // caso a opcao checada no momento esteja marcada
-		 			total = parseInt(opcoes.value) + total; // o programa incrementa o valor dela no total;
+		 	if(casabox.checked){
+		 		for(var i = 0; i < 9; i ++){
+		 			var opcoes = document.getElementsByName("opcoes")[i];// o programa vai checando todas as opcoes 
+		 			if(opcoes.checked){ // caso a opcao checada no momento esteja marcada
+		 				quantidadecarnes += 1;
+		 			}		 			
+		 		}
+		 		console.log(quantidadecarnes);
+		 		parttotal = participantes.value * (400/quantidadecarnes);
+		 		for(var i = 0; i < 9; i ++){
+		 			var opcoes = document.getElementsByName("opcoes")[i];// o programa vai checando todas as opcoes 
+		 			if(opcoes.checked){
+		 				total += parttotal * opcoes.value;
+		 			}
 		 		}
 		 	}
-		 	var parttotalaux;//variavel auxiliar
-		 	parttotalaux =(total/10) * 4;//calculo
-		 	parttotal = parttotalaux;
-		 	var totalaxu;//variavel auxiliar
-		 	participantes = document.getElementsByName("participantes")[0];//pega o n° de participantes
-		 	totalaxu = ((total/10) * 4) * parseInt(participantes.value);//calculo do total;
-		 	total = totalaxu;
-		 	
-		 } 
+		 }
+		 var participantevalor = total / participantes.value;
+
 		 if(casabox.checked || eventobox.checked){ // condicionador para a chamada dos resultados, só chama se o usuario marcar casa || evento
 			alert("Obrigado por usar o Planejador de Churrascos");//mensagem de agradecimento
-			resultados(total,parttotal);//chamada da funcao resultados, passando os paramentros que serao utilizados pela funcao resultados();
+			resultados(total,participantevalor);//chamada da funcao resultados, passando os paramentros que serao utilizados pela funcao resultados();
 		}else{
 			eror.style.display = "block";
 			setInterval(function(){eror.style.display = "none"},4000);
@@ -69,43 +71,42 @@
 		var cerva = document.getElementsByName("cerva")[0];
 		var refri = document.getElementsByName("refri")[0];
 		var bebidasresul = document.getElementsByName("bebidasresul")[0];
-		var bebidasvalor;
-		
+		var bebidasvalor,bebidasaux ;
+
 		if(casabox.checked){
 			if (cerva.checked && refri.checked ){
-				bebidasvalor = (parseInt(participantes.value) * 5) + (parseInt(participantes.value) * 2);
-				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
-				
+				bebidasvalor = (parseInt(participantes.value) * 3.5); 
+				bebidasaux = (parseInt(participantes.value) * 1);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros de cerveja e  " +bebidasaux+ " litros de refrigerante";
 			}		
 			if (!cerva.checked && !refri.checked ){
-				bebidasvalor = 0;
 				bebidasresul.innerHTML = "Voce não calculou a quantidade de bebida para o seu churrasco";
 			}
 			if (cerva.checked && !refri.checked){
-				bebidasvalor =(parseInt(participantes.value) * cerva);
-				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
+				bebidasvalor =(parseInt(participantes.value) * 3.5);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros de cerveja";
 			}
 			if (refri.checked && !cerva.checked){
-				bebidasvalor =(parseInt(participantes.value) * refri);
-				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
+				bebidasaux =(parseInt(participantes.value) * 1);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasaux + " litros de refrigerante";
 			}
 		}
 		if(eventobox.checked){
 			if (cerva.checked && refri.checked ){
-				bebidasvalor = (parseInt(participantes.value) * cerva * 2) + (parseInt(participantes.value) * refri * 2);
-				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
+				bebidasvalor = (parseInt(participantes.value) * 5);
+				bebidasaux = (parseInt(participantes.value) * 2);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros de cerveja e  " +bebidasaux+ " litros de refrigerante";
 			}		
 			if (!cerva.checked && !refri.checked ){
-				bebidasvalor = 0;
 				bebidasresul.innerHTML = "Voce não calculou a quantidade de bebida para o seu churrasco";
 			}
 			if (cerva.checked && !refri.checked){
-				bebidasvalor =(parseInt(participantes.value) * cerva * 2);
-				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
+				bebidasvalor =(parseInt(participantes.value) * 5);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros de cerveja";
 			}
 			if (refri.checked && !cerva.checked){
-				bebidasvalor =(parseInt(participantes.value) * refri * 2);
-				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasvalor + " litros";
+				bebidasaux =(parseInt(participantes.value)* 2);
+				bebidasresul.innerHTML = "Voce precisará para o seu churrasco "  + bebidasaux + " litros de refrigerante";
 			}
 		}
 		
@@ -152,28 +153,28 @@
 						<table border=1>
 							<tr>
 								<td>Carnes:</td>
-								<td>PICANHA<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
-								<td>COSTELA <center><input type="checkbox" name="opcoes" value="9.8"></td>
-								<td>FRALDINHA <center><input type="checkbox" name="opcoes" value="7"></td>
-								<td>MAMINHA<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
-								<td>ASINHA <center><input type="checkbox" name="opcoes" value="9.8"></td>
-								<td>ALCATRA <center><input type="checkbox" name="opcoes" value="7"></td>
-								<td>CONTRA&nbsp;FILÉ<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
-								<td>T-&nbsp;BONE<center><input type="checkbox" name="opcoes" value="9.8"></td>
-								<td>CORAÇÃO<center><input type="checkbox" name="opcoes" value="7"></td>
+								<td>PICANHA<br> <center><input type="checkbox" name="opcoes" value="28"></td> 
+								<td>COSTELA <center><input type="checkbox" name="opcoes" value="11"></td>
+								<td>FRALDINHA <center><input type="checkbox" name="opcoes" value="16.5"></td>
+								<td>MAMINHA<br> <center><input type="checkbox" name="opcoes" value="20"></td> 
+								<td>ASINHA <center><input type="checkbox" name="opcoes" value=15></td>
+								<td>ALCATRA <center><input type="checkbox" name="opcoes" value="30"></td>
+								<td>CONTRA&nbsp;FILÉ<br> <center><input type="checkbox" name="opcoes" value="20"></td> 
+								<td>T-&nbsp;BONE<center><input type="checkbox" name="opcoes" value="30"></td>
+								<td>CORAÇÃO<center><input type="checkbox" name="opcoes" value="20"></td>
 
 						</tr>
 						<tr>
 							<td>Preço médio:
-							<td><center>R$:10
-							<td><center>R$:9,80
-							<td><center>R$:7
-							<td><center>R$:5
+							<td><center>R$:28
 							<td><center>R$:11
-							<td><center>R$:13
-							<td><center>R$:5
-							<td><center>R$:11
-							<td><center>R$:13
+							<td><center>R$:16.5
+							<td><center>R$:20
+							<td><center>R$:15
+							<td><center>R$:30
+							<td><center>R$:20
+							<td><center>R$:30
+							<td><center>R$:20
 						</tr>
 						</table>
 					</div>
@@ -187,22 +188,22 @@
 						<table  border=1 >
 						<tr>
 							<td>Diversos:</td>
-							<td>SOBRECOXA<br> <center><input type="checkbox" name="opcoes" value="10"></td> 
-							<td>LINGUIÇA <center><input type="checkbox" name="opcoes" value="9.8"></td>
-							<td>MAIONESE <center><input type="checkbox" name="opcoes" value="7"></td>
-							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="opcoes" value="5"></td>
-							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="opcoes" value="11"></td>
-							<td>VINAGRETE <center><input type="checkbox" name="opcoes" value="7"></td>
+							<td>SOBRECOXA<br> <center><input type="checkbox" name="opcoes" value="8"></td> 
+							<td>LINGUIÇA <center><input type="checkbox" name="opcoes" value="10"></td>
+							<td>MAIONESE <center><input type="checkbox" name="opcoes" value="29"></td>
+							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="opcoes" value="17"></td>
+							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="opcoes" value="7"></td>
+							<td>VINAGRETE <center><input type="checkbox" name="opcoes" value="25"></td>
 						</tr>
 						<tr>
 							<!--PREÇOS-->
 							<td>Preço médio:
+							<td><center>R$:8
 							<td><center>R$:10
-							<td><center>R$:9,80
+							<td><center>R$:29
+							<td><center>R$:17
 							<td><center>R$:7
-							<td><center>R$:5
-							<td><center>R$:11
-							<td><center>R$:13
+							<td><center>R$:25
 						</tr>
 					</table>
 				</div><br>
