@@ -23,7 +23,7 @@
 		var total = 0; var parttotal = 0;
 		var casabox = document.getElementsByName("CASA")[0];
 		var eventobox = document.getElementsByName("EVENTO")[0];
-		var quantidadecarnes;
+		var quantidadecarnes = 0;
 
 		 if (!casabox.checked & !eventobox.checked|| casabox.checked & eventobox.checked){
 			console.log("Marque apenas uma das opções");
@@ -31,25 +31,30 @@
 			eror.style.display = "block";//o style do display esta "block", o que significa q ela vai aparecer;
 			setInterval(function(){eror.style.display = "none"},4000);//dps de 4 segundos ela apaga, "none";
 		 }else{
-		 	if(casabox.checked){
-		 		for(var i = 0; i < 9; i ++){
-		 			var opcoes = document.getElementsByName("opcoes")[i];// o programa vai checando todas as opcoes 
-		 			if(opcoes.checked){ // caso a opcao checada no momento esteja marcada
-		 				quantidadecarnes += 1;
-		 			}		 			
-		 		}
-		 		console.log(quantidadecarnes);
-		 		parttotal = participantes.value * (400/quantidadecarnes);
-		 		for(var i = 0; i < 9; i ++){
-		 			var opcoes = document.getElementsByName("opcoes")[i];// o programa vai checando todas as opcoes 
-		 			if(opcoes.checked){
-		 				total += parttotal * opcoes.value;
-		 			}
+////////////////////////////////////////////////------calculos-----///////////////////////////////////////////////////
+			for(var i = 0; i < 11; i ++){
+		 		var opcoes = document.getElementsByName("opcoes")[i];// o programa vai checando todas as opcoes 
+		 		if(opcoes.checked){ // caso a opcao checada no momento esteja marcada
+		 			quantidadecarnes ++;
+		 		}			
+	 		}
+			if(casabox.checked){
+		 		parttotal = participantes.value * (0.4/quantidadecarnes);
+		 	}
+		 	if(eventobox.checked){
+		 		parttotal = participantes.value * (0.8/quantidadecarnes);
+		 	}
+		 	for(var i = 0; i < 11; i ++){
+				var opcoes = document.getElementsByName("opcoes")[i];// o programa vai checando todas as opcoes 
+		 		if(opcoes.checked){
+		 			total += parttotal * opcoes.value;
 		 		}
 		 	}
-		 }
-		 var participantevalor = total / participantes.value;
-
+		 	
+		 }	
+		var participantevalor = total / participantes.value;
+		total = total.toFixed(2);
+		participantevalor = participantevalor.toFixed(2);
 		 if(casabox.checked || eventobox.checked){ // condicionador para a chamada dos resultados, só chama se o usuario marcar casa || evento
 			alert("Obrigado por usar o Planejador de Churrascos");//mensagem de agradecimento
 			resultados(total,participantevalor);//chamada da funcao resultados, passando os paramentros que serao utilizados pela funcao resultados();
@@ -162,6 +167,8 @@
 								<td>CONTRA&nbsp;FILÉ<br> <center><input type="checkbox" name="opcoes" value="20"></td> 
 								<td>T-&nbsp;BONE<center><input type="checkbox" name="opcoes" value="30"></td>
 								<td>CORAÇÃO<center><input type="checkbox" name="opcoes" value="20"></td>
+								<td>SOBRECOXA<br> <center><input type="checkbox" name="opcoes" value="8"></td> 
+								<td>LINGUIÇA <center><input type="checkbox" name="opcoes" value="10"></td>
 
 						</tr>
 						<tr>
@@ -175,6 +182,8 @@
 							<td><center>R$:20
 							<td><center>R$:30
 							<td><center>R$:20
+							<td><center>R$:8
+							<td><center>R$:10
 						</tr>
 						</table>
 					</div>
@@ -188,8 +197,7 @@
 						<table  border=1 >
 						<tr>
 							<td>Diversos:</td>
-							<td>SOBRECOXA<br> <center><input type="checkbox" name="opcoes" value="8"></td> 
-							<td>LINGUIÇA <center><input type="checkbox" name="opcoes" value="10"></td>
+							
 							<td>MAIONESE <center><input type="checkbox" name="opcoes" value="29"></td>
 							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="opcoes" value="17"></td>
 							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="opcoes" value="7"></td>
@@ -198,8 +206,6 @@
 						<tr>
 							<!--PREÇOS-->
 							<td>Preço médio:
-							<td><center>R$:8
-							<td><center>R$:10
 							<td><center>R$:29
 							<td><center>R$:17
 							<td><center>R$:7
