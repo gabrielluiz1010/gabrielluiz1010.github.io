@@ -51,16 +51,24 @@
 		 		}
 		 	}
 		 	
-		 }	
+		 }
+		var diversosaux = 0;
+		 for(var i = 0 ; i < 4; i ++){
+			var diversos = document.getElementsByName("diversos")[i];
+			if(diversos.checked){
+				diversosaux += parseFloat(diversos.value);
+			}
+		 }
+		total = parseFloat(total) + parseFloat(diversosaux);
 		var participantevalor = total / participantes.value;
-		total = total.toFixed(2);
 		participantevalor = participantevalor.toFixed(2);
-		 if(casabox.checked || eventobox.checked){ // condicionador para a chamada dos resultados, só chama se o usuario marcar casa || evento
+		 if(!casabox.checked && !eventobox.checked || casabox.checked && eventobox.checked){ // condicionador para a chamada dos resultados, só chama se o usuario marcar casa || evento
+		 	eror.style.display = "block";
+			setInterval(function(){eror.style.display = "none"},4000);
+			
+		}else{
 			alert("Obrigado por usar o Planejador de Churrascos");//mensagem de agradecimento
 			resultados(total,participantevalor);//chamada da funcao resultados, passando os paramentros que serao utilizados pela funcao resultados();
-		}else{
-			eror.style.display = "block";
-			setInterval(function(){eror.style.display = "none"},4000);
 		}
 	}
 	//-----------------DEPOIS RESULTADOS----------------//
@@ -198,10 +206,10 @@
 						<tr>
 							<td>Diversos:</td>
 							
-							<td>MAIONESE <center><input type="checkbox" name="opcoes" value="29"></td>
-							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="opcoes" value="17"></td>
-							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="opcoes" value="7"></td>
-							<td>VINAGRETE <center><input type="checkbox" name="opcoes" value="25"></td>
+							<td>MAIONESE <center><input type="checkbox" name="diversos" value="29"></td>
+							<td>QUEIJO&nbsp;COALHO <center><input type="checkbox" name="diversos" value="17"></td>
+							<td>PÃO&nbsp;DE&nbsp;ALHO <center><input type="checkbox" name="diversos" value="7"></td>
+							<td>VINAGRETE <center><input type="checkbox" name="diversos" value="25"></td>
 						</tr>
 						<tr>
 							<!--PREÇOS-->
